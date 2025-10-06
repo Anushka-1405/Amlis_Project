@@ -1,50 +1,51 @@
-# Medical Cost Prediction Project
+# Web Application for Medical Insurance Charge Prediction
 
-This project implements a medical cost prediction model using machine learning techniques. The model predicts medical insurance charges based on various factors such as age, sex, BMI, smoking status, number of children, and region.
+This web application allows users to predict medical insurance charges based on various input parameters such as age, sex, BMI, smoker status, number of children, and region.
 
 ## Project Structure
 
-- **Medical_Cost_Insurance_.ipynb**: Jupyter notebook containing the data analysis, model training, and evaluation.
-- **insurance.csv**: Dataset used for training the prediction model.
-- **rf_tuned.pkl**: Serialized Random Forest model used for making predictions.
-- **webapp/**: Directory containing the web application files.
-  - **app.py**: Main entry point for the web application, setting up the Flask server and handling predictions.
-  - **templates/**: Contains HTML templates for the web application.
-    - **index.html**: Main page of the web application with a form for user input and displaying predictions.
-  - **static/**: Contains static files such as CSS.
-    - **style.css**: Styles for the web application.
+The project consists of the following files:
 
-## Running the Web Application
+- **app.py**: The main entry point for the web application. It sets up a Flask server, handles routing, and integrates the prediction model for medical insurance charges.
+- **templates/index.html**: The HTML structure for the web application's main page. It includes a form for user input and displays the predicted charges.
+- **static/style.css**: The CSS styles for the web application, enhancing the user interface.
 
-1. Ensure you have Flask installed. You can install it using pip:
+## Requirements
+
+To run this application, you need to have the following installed:
+
+- Python 3.x
+- Flask
+- scikit-learn
+- pandas
+- numpy
+- pickle
+
+You can install Flask using pip:
+
+```
+pip install Flask
+```
+
+## Running the Application
+
+1. Navigate to the `webapp` directory:
    ```
-   pip install Flask
+   cd amlis/webapp
    ```
 
-2. Navigate to the `webapp` directory:
-   ```
-   cd webapp
-   ```
-
-3. Run the application:
+2. Run the application:
    ```
    python app.py
    ```
 
-4. Open your web browser and go to `http://localhost:5000` to access the application.
+3. Open your web browser and go to `http://localhost:5000` to access the application.
 
 ## Usage
 
-- Enter the required details in the form (age, sex, BMI, smoker status, number of children, and region).
-- Click on the submit button to get the predicted medical insurance charges.
+- Fill in the form with the required parameters.
+- Click the "Predict" button to see the predicted medical insurance charges based on your input.
 
-## Dependencies
+## License
 
-- Flask
-- pandas
-- numpy
-- scikit-learn
-- seaborn
-- matplotlib
-
-Make sure to install all necessary dependencies before running the application.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
