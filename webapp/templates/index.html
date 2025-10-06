@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Medical Insurance Charge Prediction</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Medical Insurance Charge Prediction</h1>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <form action="/predict" method="POST">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="0" required>
+
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="" disabled selected>Select your sex</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+
+            <label for="bmi">BMI:</label>
+            <input type="number" step="0.01" id="bmi" name="bmi" min="0" required>
+
+            <label for="smoker">Smoker:</label>
+            <select id="smoker" name="smoker" required>
+                <option value="" disabled selected>Are you a smoker?</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="children">Number of Children:</label>
+            <input type="number" id="children" name="children" min="0" required>
+
+            <label for="region">Region:</label>
+            <select id="region" name="region" required>
+                <option value="" disabled selected>Select your region</option>
+                <option value="0">Northwest</option>
+                <option value="1">Northeast</option>
+                <option value="2">Southeast</option>
+                <option value="3">Southwest</option>
+            </select>
+
+            <button type="submit" class="predict-btn">Predict Charges</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <h2>Predicted Charges: ${{ "{:,.2f}".format(prediction) }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
